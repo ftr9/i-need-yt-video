@@ -7,12 +7,14 @@ const textDecoder = new TextDecoder();
 
 const LoadingSpinnerWithText = ({children}: {children: string}) => {
 	return (
-		<Text>
-			<Text color={'white'}>
-				<Spinner type="dots" />
-			</Text>{' '}
-			{children}
-		</Text>
+		<Box>
+			<Text>
+				<Text color={'white'}>
+					<Spinner type="dots" />
+				</Text>{' '}
+				{children}
+			</Text>
+		</Box>
 	);
 };
 
@@ -23,6 +25,7 @@ export default function App() {
 	const [isDownloadingVideo, setIsDownloadingVideo] = useState(false);
 	const [downloadingText, setDownloadingText] = useState('');
 	const [error, setError] = useState('');
+	const [pastedText, setPastedText] = useState('');
 
 	const handleLibraryDownload = async () => {
 		return new Promise<boolean>(resolve => {
@@ -92,6 +95,7 @@ export default function App() {
 		setResult('');
 		setError('');
 		setDownloadingText('');
+		setPastedText(pastedLink);
 
 		const hasLibraryInstalled = await checkLibaryExistence();
 		setIsCheckingLibrary(false);
@@ -119,27 +123,38 @@ export default function App() {
 		setResult('video download successfully');
 	});
 
+	const requireLoadingDisplay =
+		isDownloadingLibrary || isDownloadingVideo || isCheckingLibrary;
+
+	const getLoadingText = () => {
+		if (isDownloadingLibrary) {
+			return "setting up system. don't worry this happens only one time ...";
+		}
+
+		if (isCheckingLibrary) {
+			return 'Please wait ...';
+		}
+
+		if (isDownloadingVideo) {
+			return downloadingText
+				? downloadingText
+				: 'Downloading video please wait ... ';
+		}
+
+		return '';
+	};
+
 	return (
-		<Box columnGap={2} flexDirection="column">
-			<Text>Download youtube videos</Text>
+		<Box rowGap={1} flexDirection="column">
+			<Text backgroundColor={'red'}>Download youtube videos</Text>
 			<Text>Paste youtube video link:</Text>
 
-			{isDownloadingVideo && (
-				<LoadingSpinnerWithText>
-					{downloadingText
-						? downloadingText
-						: 'Downloading video please wait ... '}
-				</LoadingSpinnerWithText>
+			{pastedText && <Text underline>{pastedText}</Text>}
+
+			{requireLoadingDisplay && (
+				<LoadingSpinnerWithText>{getLoadingText()}</LoadingSpinnerWithText>
 			)}
 
-			{isDownloadingLibrary && (
-				<LoadingSpinnerWithText>
-					setting up system. don't worry this happens only one time.
-				</LoadingSpinnerWithText>
-			)}
-			{isCheckingLibrary && (
-				<LoadingSpinnerWithText>please wait</LoadingSpinnerWithText>
-			)}
 			{result && (
 				<>
 					<Text color={'green'}>{result} ✅</Text>

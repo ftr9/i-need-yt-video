@@ -29,3 +29,7 @@ So I made this setup to make it easier:
 - ✅ Video downloads automatically
 
 That’s it. Simple and fast.
+
+## Demo:
+
+https://github.com/user-attachments/assets/8e11b2d1-be26-4671-9a79-f7efc7dbca6f
