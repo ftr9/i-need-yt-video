@@ -16,6 +16,12 @@ But honestly, remembering and typing that command again and again is annoying.
 
 So I made this setup to make it easier:
 
+- ✅ First enter command :
+
+- ```bash
+  i-need-yt-video
+  ```
+
 - ✅ Just paste the URL
 
 - ✅ Hit enter
