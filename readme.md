@@ -16,8 +16,10 @@ But honestly, remembering and typing that command again and again is annoying.
 
 So I made this setup to make it easier:
 
-✅ Just paste the URL
-✅ Hit enter
-✅ Video downloads automatically
+- ✅ Just paste the URL
+
+- ✅ Hit enter
+
+- ✅ Video downloads automatically
 
 That’s it. Simple and fast.
