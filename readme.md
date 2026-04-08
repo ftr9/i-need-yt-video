@@ -1,35 +1,57 @@
 ## Download YouTube Videos on macOS (Terminal)
 
-This is a simple way to download YouTube videos directly from your terminal on macOS.
+A simple CLI tool to download YouTube videos directly from your macOS terminal.
 
-Just paste the YouTube video link into the terminal, and it will automatically start downloading and save at desktop
+Just paste a YouTube video link, press enter, and the video will automatically download and be saved to your **Desktop**.
 
-### Why I made this
+---
 
-Normally, I had to type a long command every time, like:
+## Why this exists
+
+Normally, downloading a video requires running a long command every time, like:
 
 ```bash
 yt-dlp -f mp4 -o <video_url>
 ```
 
-But honestly, remembering and typing that command again and again is annoying.
+Typing and remembering that again and again is annoying, so this tool makes the process quick and effortless.
 
-So I made this setup to make it easier:
+---
 
-- ✅ First enter command :
+## Installation
 
-- ```bash
-  i-need-yt-video
-  ```
+Install the package globally:
 
-- ✅ Just paste the URL
+```bash
+npm install -g i-need-yt-video
+```
 
-- ✅ Hit enter
+---
 
-- ✅ Video downloads automatically
+## Usage
 
-That’s it. Simple and fast.
+Run the CLI from anywhere:
 
-## Demo:
+```bash
+i-need-yt-video
+```
 
-https://github.com/user-attachments/assets/8e11b2d1-be26-4671-9a79-f7efc7dbca6f
+Then:
+
+1. Paste the YouTube video URL
+2. Press **Enter**
+3. The video will download automatically and be saved on your **Desktop**
+
+---
+
+## Demo
+
+[https://github.com/user-attachments/assets/8e11b2d1-be26-4671-9a79-f7efc7dbca6f](https://github.com/user-attachments/assets/8e11b2d1-be26-4671-9a79-f7efc7dbca6f)
+
+---
+
+## Notes
+
+- Works on **macOS**
+- Designed for fast terminal-based downloads
+- Output location: **Desktop**

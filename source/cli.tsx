@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+
 import React, {useState} from 'react';
-import {Box, Text, usePaste} from 'ink';
+import {Box, render, Text, usePaste} from 'ink';
 import childProcess from 'node:child_process';
 import Spinner from 'ink-spinner';
 
@@ -18,7 +20,7 @@ const LoadingSpinnerWithText = ({children}: {children: string}) => {
 	);
 };
 
-export default function App() {
+const App = () => {
 	const [result, setResult] = useState('');
 	const [isDownloadingLibrary, setIsDownloadingLibrary] = useState(false);
 	const [isCheckingLibrary, setIsCheckingLibrary] = useState(false);
@@ -164,4 +166,6 @@ export default function App() {
 			{error && <Text color={'red'}>{error}</Text>}
 		</Box>
 	);
-}
+};
+
+render(<App />);
